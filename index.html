@@ -1,142 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Be My Valentine 💖</title>
-
-<style>
-  body {
-    margin: 0;
-    height: 100vh;
-    font-family: 'Comic Sans MS', 'Poppins', cursive;
-    background: linear-gradient(135deg, #ffd6e8, #fff0f5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-  }
-
-  .container {
-    text-align: center;
-    background: #fff;
-    padding: 30px;
-    border-radius: 25px;
-    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
-    width: 90%;
-    max-width: 420px;
-  }
-
-  h1 {
-    color: #ff4d88;
-    margin-bottom: 20px;
-  }
-
-  .teddies {
-    font-size: 3rem;
-    margin-bottom: 10px;
-  }
-
-  .buttons {
-    position: relative;
-    height: 120px;
-    margin-top: 20px;
-  }
-
-  button {
-    padding: 14px 28px;
-    font-size: 1rem;
-    border-radius: 30px;
-    border: none;
-    cursor: pointer;
-    position: absolute;
-  }
-
-  #yesBtn {
-    background: #ff4d88;
-    color: white;
-    left: 50%;
-    transform: translateX(-50%);
-    bottom: 10px;
-  }
-
-  #noBtn {
-    background: #ddd;
-    color: #333;
-    left: 20%;
-    top: 10px;
-  }
-
-  .celebration {
-    display: none;
-  }
-
-  .celebration h2 {
-    color: #ff4d88;
-    font-size: 2rem;
-  }
-
-  .hearts {
-    position: fixed;
-    inset: 0;
-    pointer-events: none;
-  }
-
-  .heart {
-    position: absolute;
-    font-size: 24px;
-    animation: floatUp 4s linear forwards;
-  }
-
-  @keyframes floatUp {
-    from {
-      transform: translateY(100vh);
-      opacity: 1;
-    }
-    to {
-      transform: translateY(-10vh);
-      opacity: 0;
-    }
-  }
-</style>
+  <meta charset="UTF-8">
+  <title>Valentine?</title>
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-<div class="container" id="questionCard">
-  <div class="teddies">🧸💖🧸</div>
-  <h1>Will you be my Valentine, Anikta? 💌</h1>
+  <div class="card">
+    <h1>Will you be my Valentine? 💖</h1>
 
-  <div class="buttons">
-    <button id="yesBtn">Yes 💕</button>
-    <button id="noBtn">No 🙈</button>
+    <div class="options">
+      <button id="yesBtn">Yes 💕</button>
+      <span id="noText">No 😜</span>
+    </div>
+
+    <p id="message"></p>
   </div>
-</div>
 
-<div class="container celebration" id="celebrationCard">
-  <h2>Yayyyyy!! 🥰💖</h2>
-  <p>You just made my heart super happy!</p>
-  <div class="teddies">🧸💖🧸💖🧸</div>
-</div>
-
-<div class="hearts" id="hearts"></div>
-
-<script>
-  const noBtn = document.getElementById("noBtn");
-  const yesBtn = document.getElementById("yesBtn");
-  const questionCard = document.getElementById("questionCard");
-  const celebrationCard = document.getElementById("celebrationCard");
-  const hearts = document.getElementById("hearts");
-
-  // Dodge the NO button 😈
-  noBtn.addEventListener("mouseenter", () => {
-    const x = Math.random() * 250;
-    const y = Math.random() * 70;
-    noBtn.style.left = x + "px";
-    noBtn.style.top = y + "px";
-  });
-
-  // YES button 💖
-  yesBtn.addEventListener("click", () => {
-    questionCar
-
+  <script src="script.js"></script>
+</body>
+</html>
