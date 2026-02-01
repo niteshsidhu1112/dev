@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Be My Valentine 💖</title>
+
+<style>
+  body {
+    margin: 0;
+    height: 100vh;
+    font-family: 'Comic Sans MS', 'Poppins', cursive;
+    background: linear-gradient(135deg, #ffd6e8, #fff0f5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+  }
+
+  .container {
+    text-align: center;
+    background: #fff;
+    padding: 30px 20px;
+    border-radius: 25px;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+    position: relative;
+    width: 90%;
+    max-width: 400px;
+  }
+
+  h1 {
+    color: #ff4d88;
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+  }
+
+  .teddies {
+    font-size: 3rem;
+    margin-bottom: 15px;
+  }
+
+  .buttons {
+    position: relative;
+    height: 120px;
+  }
+
+  button {
+    padding: 12px 24px;
+    font-size: 1rem;
+    border-radius: 30px;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s ease;
+  }
+
+  #yesBtn {
+    background: #ff4d88;
+    color: white;
+  }
+
+  #yesBtn:hover {
+    transform: scale(1.1);
+  }
+
+  #noBtn {
+    background: #ccc;
+    color: #333;
+    position: absolute;
+  }
+
+  .celebration {
+    display: none;
+  }
+
+  .celebration h2 {
+    color: #ff4d88;
+    font-size: 1.8rem;
+  }
+
+  .hearts {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+  }
+
+  .heart {
+    position: absolute;
+    font-size: 20px;
+    animation: floatUp 4s linear infinite;
+  }
+
+  @keyframes floatUp {
+    0% {
+      transform: translateY(100vh) scale(1);
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(-10vh) scale(1.5);
+      opacity: 0;
+    }
+  }
+</style>
+</head>
+
+<body>
+
+<div class="container" id="card">
+  <div class="teddies">🧸🧸💖🧸🧸</div>
+  <h1>Will you be my Valentine? 💌
