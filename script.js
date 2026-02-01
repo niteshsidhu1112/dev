@@ -76,4 +76,49 @@ function createHeart() {
   setTimeout(() => heart.remove(), 4000);
 }
 
+function positionNoInitially() {
+  const maxX = container.clientWidth - noText.offsetWidth;
+  const maxY = container.clientHeight - noText.offsetHeight;
+
+  const yesRect = yesBtn.getBoundingClientRect();
+  const containerRect = container.getBoundingClientRect();
+
+  const yesLeft = yesRect.left - containerRect.left;
+  const yesRight = yesLeft + yesRect.width;
+  const yesTop = yesRect.top - containerRect.top;
+  const yesBottom = yesTop + yesRect.height;
+
+  let x, y;
+
+  const isMobile = /Mobi|Android/i.test(navigator.userAgent);
+
+  function isOverlapping(nx, ny) {
+    const padding = 10;
+    return !(
+      nx + noText.offsetWidth + padding < yesLeft ||
+      nx > yesRight + padding ||
+      ny + noText.offsetHeight + padding < yesTop ||
+      ny > yesBottom + padding
+    );
+  }
+
+  do {
+    if (isMobile) {
+      x = Math.random() * maxX;
+      y = 10;
+    } else {
+      x = Math.random() * maxX;
+      y = Math.random() * maxY;
+    }
+  } while (isOverlapping(x, y));
+
+  noText.style.left = `${x}px`;
+  noText.style.top = `${y}px`;
+}
+
+// Run this once when the page loads:
+positionNoInitially();
+
+
+
 
