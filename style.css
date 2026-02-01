@@ -1,0 +1,52 @@
+body {
+  height: 100vh;
+  margin: 0;
+  background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Arial, sans-serif;
+}
+
+.card {
+  background: white;
+  padding: 40px;
+  border-radius: 16px;
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+.options {
+  margin-top: 30px;
+  position: relative;
+  height: 60px;
+}
+
+#yesBtn {
+  padding: 12px 24px;
+  font-size: 18px;
+  border: none;
+  border-radius: 8px;
+  background: #ff4d6d;
+  color: white;
+  cursor: pointer;
+}
+
+#yesBtn:hover {
+  background: #e63950;
+}
+
+#noText {
+  position: absolute;
+  left: 120px;
+  font-size: 18px;
+  cursor: pointer;
+  user-select: none;
+  transition: left 0.15s ease, top 0.15s ease;
+}
+
+#message {
+  margin-top: 30px;
+  font-size: 22px;
+  color: #ff4d6d;
+}
