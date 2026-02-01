@@ -7,18 +7,46 @@ function dodgeNo() {
   const maxX = container.clientWidth - noText.offsetWidth;
   const maxY = container.clientHeight - noText.offsetHeight;
 
-  // On mobile, dodge mostly horizontally to avoid weird jumps
-  if (/Mobi|Android/i.test(navigator.userAgent)) {
-    const x = Math.random() * maxX;
-    noText.style.left = `${x}px`;
-    noText.style.top = `10px`; // fixed vertical position
-  } else {
-    const x = Math.random() * maxX;
-    const y = Math.random() * maxY;
-    noText.style.left = `${x}px`;
-    noText.style.top = `${y}px`;
+  // Get bounding box of "Yes" button relative to container
+  const yesRect = yesBtn.getBoundingClientRect();
+  const containerRect = container.getBoundingClientRect();
+
+  // Calculate Yes button position inside container coords
+  const yesLeft = yesRect.left - containerRect.left;
+  const yesRight = yesLeft + yesRect.width;
+  const yesTop = yesRect.top - containerRect.top;
+  const yesBottom = yesTop + yesRect.height;
+
+  let x, y;
+
+  const isMobile = /Mobi|Android/i.test(navigator.userAgent);
+
+  function isOverlapping(nx, ny) {
+    // Check if the new No position overlaps Yes button area with some padding (10px)
+    const padding = 10;
+    return !(
+      nx + noText.offsetWidth + padding < yesLeft || // No right edge left of Yes left edge
+      nx > yesRight + padding ||                     // No left edge right of Yes right edge
+      ny + noText.offsetHeight + padding < yesTop ||// No bottom above Yes top
+      ny > yesBottom + padding                       // No top below Yes bottom
+    );
   }
+
+  // Try random positions until no overlap with Yes button
+  do {
+    if (isMobile) {
+      x = Math.random() * maxX;
+      y = 10; // fixed vertical position on mobile
+    } else {
+      x = Math.random() * maxX;
+      y = Math.random() * maxY;
+    }
+  } while (isOverlapping(x, y));
+
+  noText.style.left = `${x}px`;
+  noText.style.top = `${y}px`;
 }
+
 
 noText.addEventListener("mouseenter", dodgeNo);
 noText.addEventListener("touchstart", dodgeNo);
@@ -47,3 +75,4 @@ function createHeart() {
 
   setTimeout(() => heart.remove(), 4000);
 }
+
