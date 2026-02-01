@@ -20,52 +20,51 @@
   .container {
     text-align: center;
     background: #fff;
-    padding: 30px 20px;
+    padding: 30px;
     border-radius: 25px;
     box-shadow: 0 15px 30px rgba(0,0,0,0.15);
-    position: relative;
     width: 90%;
-    max-width: 400px;
+    max-width: 420px;
   }
 
   h1 {
     color: #ff4d88;
-    font-size: 1.8rem;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
   }
 
   .teddies {
     font-size: 3rem;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
   }
 
   .buttons {
     position: relative;
     height: 120px;
+    margin-top: 20px;
   }
 
   button {
-    padding: 12px 24px;
+    padding: 14px 28px;
     font-size: 1rem;
     border-radius: 30px;
     border: none;
     cursor: pointer;
-    transition: 0.3s ease;
+    position: absolute;
   }
 
   #yesBtn {
     background: #ff4d88;
     color: white;
-  }
-
-  #yesBtn:hover {
-    transform: scale(1.1);
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 10px;
   }
 
   #noBtn {
-    background: #ccc;
+    background: #ddd;
     color: #333;
-    position: absolute;
+    left: 20%;
+    top: 10px;
   }
 
   .celebration {
@@ -74,7 +73,7 @@
 
   .celebration h2 {
     color: #ff4d88;
-    font-size: 1.8rem;
+    font-size: 2rem;
   }
 
   .hearts {
@@ -85,17 +84,17 @@
 
   .heart {
     position: absolute;
-    font-size: 20px;
-    animation: floatUp 4s linear infinite;
+    font-size: 24px;
+    animation: floatUp 4s linear forwards;
   }
 
   @keyframes floatUp {
-    0% {
-      transform: translateY(100vh) scale(1);
+    from {
+      transform: translateY(100vh);
       opacity: 1;
     }
-    100% {
-      transform: translateY(-10vh) scale(1.5);
+    to {
+      transform: translateY(-10vh);
       opacity: 0;
     }
   }
@@ -104,6 +103,39 @@
 
 <body>
 
-<div class="container" id="card">
-  <div class="teddies">🧸🧸💖🧸🧸</div>
-  <h1>Will you be my Valentine? 💌
+<div class="container" id="questionCard">
+  <div class="teddies">🧸💖🧸</div>
+  <h1>Will you be my Valentine? 💌</h1>
+
+  <div class="buttons">
+    <button id="yesBtn">Yes 💕</button>
+    <button id="noBtn">No 🙈</button>
+  </div>
+</div>
+
+<div class="container celebration" id="celebrationCard">
+  <h2>Yayyyyy!! 🥰💖</h2>
+  <p>You just made my heart super happy!</p>
+  <div class="teddies">🧸💖🧸💖🧸</div>
+</div>
+
+<div class="hearts" id="hearts"></div>
+
+<script>
+  const noBtn = document.getElementById("noBtn");
+  const yesBtn = document.getElementById("yesBtn");
+  const questionCard = document.getElementById("questionCard");
+  const celebrationCard = document.getElementById("celebrationCard");
+  const hearts = document.getElementById("hearts");
+
+  // Dodge the NO button 😈
+  noBtn.addEventListener("mouseenter", () => {
+    const x = Math.random() * 250;
+    const y = Math.random() * 70;
+    noBtn.style.left = x + "px";
+    noBtn.style.top = y + "px";
+  });
+
+  // YES button 💖
+  yesBtn.addEventListener("click", () => {
+    questionCar
