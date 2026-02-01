@@ -52,7 +52,7 @@ noText.addEventListener("mouseenter", dodgeNo);
 noText.addEventListener("touchstart", dodgeNo);
 
 yesBtn.addEventListener("click", () => {
-  message.innerHTML = "YAYYYY!! 💖🎉 I knew you’d say YES 😘";
+  message.innerHTML = "YAYYYY!! 💖🎉";
   noText.style.display = "none";
   yesBtn.disabled = true;
 
@@ -75,4 +75,5 @@ function createHeart() {
 
   setTimeout(() => heart.remove(), 4000);
 }
+
 
