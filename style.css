@@ -4,7 +4,7 @@ body {
   margin: 0;
   background:
     radial-gradient(circle at top, #ffe6eb, #ffb3c6),
-    url('https://i.imgur.com/UhY3X70.png') repeat;
+    url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAIAAAD/gAIDAAAAS0lEQVR4nO3BMQEAAAgDoJvc5FEg3hBJRQoFAoFAoFAoFAoFAoFAoFAoFAoFAoFAoFAoFAoFAoFAoFAoFAoFAoFAoFAoFAoFAoFAoFAoFAoGAUX9L0AF4EBPrAAAAAASUVORK5CYII=') repeat;
   background-size: 100px 100px;
   display: flex;
   justify-content: center;
@@ -12,6 +12,7 @@ body {
   font-family: "Comic Sans MS", "Arial", sans-serif;
   overflow: hidden;
 }
+
 
 .card {
   background: white;
@@ -117,3 +118,4 @@ h1 {
     height: 60px;
   }
 }
+
